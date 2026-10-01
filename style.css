@@ -1,0 +1,565 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at center, #ffd6eb 0%, #f59ac6 45%, #c96b9e 100%);
+
+    font-family: "Courier New", monospace;
+
+    color: #5b2850;
+
+    overflow: hidden;
+
+    image-rendering: pixelated;
+}
+
+
+/* ==============================
+   JANELA RETRÔ
+============================== */
+
+.window {
+    width: min(600px, 92vw);
+
+    background: #fff0f8;
+
+    border: 4px solid #63245c;
+
+    box-shadow:
+        8px 8px 0 #63245c,
+        14px 14px 0 rgba(70, 20, 60, 0.25);
+
+    animation: appear 0.5s ease;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ==============================
+   BARRA DA JANELA
+============================== */
+
+.title-bar {
+
+    height: 48px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a62f82,
+            #e85ba7
+        );
+
+    border-bottom: 4px solid #63245c;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 10px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    text-shadow: 2px 2px 0 #63245c;
+}
+
+
+/* BOTÕES DA JANELA */
+
+.window-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.window-buttons span {
+
+    width: 25px;
+    height: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #ffd5ea;
+
+    color: #63245c;
+
+    border: 2px solid #63245c;
+
+    box-shadow: 2px 2px 0 #63245c;
+
+    font-weight: bold;
+}
+
+
+/* ==============================
+   CONTEÚDO
+============================== */
+
+.window-content {
+
+    min-height: 430px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #fff0f8,
+            #fff0f8 3px,
+            #ffe9f4 3px,
+            #ffe9f4 6px
+        );
+}
+
+
+/* ==============================
+   GATINHO
+============================== */
+
+.pixel-cat {
+
+    font-size: 70px;
+
+    margin-bottom: 12px;
+
+    animation: catFloat 2s infinite ease-in-out;
+
+    filter: drop-shadow(3px 3px 0 #63245c);
+}
+
+.pixel-cat.big {
+    font-size: 85px;
+}
+
+@keyframes catFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* ==============================
+   CARTA
+============================== */
+
+.letter {
+
+    background: #fffafc;
+
+    border: 4px dashed #d54c9b;
+
+    padding: 28px 20px;
+
+    box-shadow:
+        6px 6px 0 #e98abb;
+
+    position: relative;
+}
+
+
+/* coração */
+
+.heart {
+
+    color: #e83e91;
+
+    font-size: 32px;
+
+    margin-bottom: 5px;
+
+    text-shadow:
+        2px 2px 0 #63245c;
+}
+
+
+/* texto pequeno */
+
+.tiny-text {
+
+    font-size: 11px;
+
+    color: #a13b79;
+
+    margin-bottom: 15px;
+}
+
+
+/* ==============================
+   TÍTULOS
+============================== */
+
+h1 {
+
+    margin: 10px 0 15px;
+
+    color: #a52b7d;
+
+    font-size: clamp(22px, 5vw, 32px);
+
+    text-shadow:
+        2px 2px 0 #f2a5ca;
+}
+
+.question-text {
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==============================
+   BOTÕES
+============================== */
+
+.buttons-area {
+    position: relative;
+    height: 80px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+
+
+button {
+
+    font-family: "Courier New", monospace;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    padding: 12px 20px;
+
+    border: 3px solid #63245c;
+
+    cursor: pointer;
+
+    box-shadow:
+        4px 4px 0 #63245c;
+
+    transition:
+        transform 0.1s,
+        box-shadow 0.1s;
+
+    touch-action: manipulation;
+}
+
+
+button:active {
+
+    transform: translate(3px, 3px);
+
+    box-shadow:
+        1px 1px 0 #63245c;
+}
+
+
+/* SIM */
+
+#yesButton {
+
+    background: #ff72b6;
+
+    color: white;
+
+    text-shadow:
+        1px 1px 0 #63245c;
+}
+
+
+/* NÃO */
+
+#noButton {
+    background: #eeeeee;
+    color: #555;
+
+    position: absolute;
+
+    left: calc(50% + 35px);
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 20;
+
+    transition:
+        left 0.18s ease,
+        top 0.18s ease,
+        transform 0.15s ease;
+}
+
+
+/* ==============================
+   STATUS
+============================== */
+
+.status {
+
+    margin-top: 25px;
+
+    font-size: 10px;
+
+    color: #9b477c;
+
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+
+/* ==============================
+   TELA ACEITOU / FINAL
+============================== */
+
+.accepted,
+.final {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 430px;
+
+    padding: 30px;
+}
+
+.accepted p,
+.final p {
+
+    max-width: 480px;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+#officialButton {
+
+    margin-top: 20px;
+
+    background: #ff72b6;
+
+    color: white;
+
+    text-shadow:
+        1px 1px 0 #63245c;
+}
+
+
+/* ==============================
+   MENSAGEM FINAL
+============================== */
+
+.final-message {
+
+    margin-top: 15px;
+
+    padding: 18px;
+
+    background: #ffe0ef;
+
+    border: 3px solid #d54c9b;
+
+    box-shadow:
+        4px 4px 0 #63245c;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+.date {
+
+    margin-top: 25px;
+
+    padding: 8px 12px;
+
+    border: 2px dashed #d54c9b;
+
+    font-size: 11px;
+
+    color: #a52b7d;
+}
+
+
+/* ==============================
+   ESCONDER JANELAS
+============================== */
+
+.hidden {
+    display: none;
+}
+
+
+/* ==============================
+   CORAÇÕES FLUTUANDO
+============================== */
+
+#hearts {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    overflow: hidden;
+}
+
+
+.heart {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    font-size: 22px;
+
+    animation:
+        heartFloat 5s linear forwards;
+}
+
+@keyframes heartFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* ==============================
+   CELULAR
+============================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .window {
+
+        width: 94vw;
+
+        box-shadow:
+            5px 5px 0 #63245c;
+    }
+
+    .window-content {
+
+        padding: 25px 15px;
+
+        min-height: 400px;
+    }
+
+    .letter {
+
+        padding: 22px 12px;
+    }
+
+    .pixel-cat {
+        font-size: 55px;
+    }
+
+    .pixel-cat.big {
+        font-size: 70px;
+    }
+
+    .title-bar {
+
+        font-size: 11px;
+    }
+
+    .window-buttons span {
+
+        width: 22px;
+        height: 20px;
+    }
+
+    button {
+
+        font-size: 12px;
+
+        padding: 10px 15px;
+    }
+
+    .accepted p,
+    .final p {
+
+        font-size: 12px;
+    }
+}
